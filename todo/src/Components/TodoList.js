@@ -23,21 +23,20 @@ class TodoList extends React.Component {
     this.setState ({ inputField: ""})
   };
 
-  toggleTodo = e => {
-      e.preventDefault();
-
+  toggleTodo = id => {
       this.props.toggleTodo(id)
   }
 
   render() {
-    console.log(this.state.inputField);
+    
     return (
       <div>
 
         <div>
           {this.props.todos && this.props.todos.map(todo => (
-              <h3 onClick={ () => this.toggleTodo(todo.id)} key={member.id}>
+              <h3 onClick={ () => this.toggleTodo(todo.id)} key={todo.id}>
                 {todo.todo}
+                {todo.status && <i class="fas fa-check" />}
               </h3>
           ))}
         </div>

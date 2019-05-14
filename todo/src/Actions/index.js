@@ -13,6 +13,14 @@ export const addTodo = newTodo => {
   };
 };
 
+export const toggleTodo = id => {
+    return {
+      type: TOGGLE_TODO,
+      payload: id
+    };
+  };
+  
+
 export const removeTodo = newList => {
     return {
       type: REMOVE_TODO,
@@ -20,10 +28,4 @@ export const removeTodo = newList => {
     };
   };
 
-  export const toggleTodo = editedList => {
-    return {
-      type: TOGGLE_TODO,
-      payload: editedList
-    };
-  };
   
