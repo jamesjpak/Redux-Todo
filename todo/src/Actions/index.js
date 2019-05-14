@@ -1,29 +1,29 @@
-const ADD_TODO = "ADD_TODO";
+export const ADD_TODO = "ADD_TODO";
 
-const REMOVE_TODO = "REMOVE_TODO";
+export const REMOVE_TODO = "REMOVE_TODO";
 
-const TOGGLE_TODO = "TOGGLE_TODO";
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
 
 
-export const addTodo = newItem => {
+export const addTodo = newTodo => {
   return {
     type: ADD_TODO,
-    payload: newItem
+    payload: newTodo
   };
 };
 
-export const removeTodo = loseItem => {
+export const removeTodo = newList => {
     return {
       type: REMOVE_TODO,
-      payload: loseItem
+      payload: newList
     };
   };
 
-  export const toggleTodo = selectedItem => {
+  export const toggleTodo = editedList => {
     return {
       type: TOGGLE_TODO,
-      payload: selectedItem
+      payload: editedList
     };
   };
   
