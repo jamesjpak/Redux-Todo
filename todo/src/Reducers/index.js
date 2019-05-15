@@ -2,25 +2,22 @@ import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../Actions';
 
 const initialState = {
     todos: [
-        {todo: 'Start a revolution', status: false, id:12345},
-        {todo: 'Save humanity', status: false, id:54321}
-    ]
+        {todo: 'Start a revolution', status: false, id:0},
+        {todo: 'Save humanity', status: false, id:1}
+    ],
+    count:1
 };
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO:
+        const idCounter = ++state.count;
+        const newState = [...state.todos, {todo: action.payload, completed: false, id: idCounter}]
         return {
             ...state, 
-            todos: [...state.todos, {todo: action.payload, status:false} ]
+            todos: newState,
+            count: idCounter
         };
-
-    //    case REMOVE_TODO:
-
-    //    return {
-    //    ...state, 
-    //        todos: idk
-    //    };
 
         case TOGGLE_TODO:
         return {
@@ -35,6 +32,13 @@ export const reducer = (state = initialState, action) => {
                 return todo;
             })
         }; 
+
+        case REMOVE_TODO:
+
+        return {
+        ...state, 
+            todos: state.todos.filter (todo => todo.id !== action.payload)
+        };
 
         default: 
         return state;

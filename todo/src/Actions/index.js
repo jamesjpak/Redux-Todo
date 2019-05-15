@@ -21,10 +21,10 @@ export const toggleTodo = id => {
   };
   
 
-export const removeTodo = newList => {
+export const removeTodo = id => {
     return {
       type: REMOVE_TODO,
-      payload: newList
+      payload: id
     };
   };
 
